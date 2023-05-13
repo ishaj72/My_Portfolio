@@ -4,7 +4,7 @@ import 'package:my_portfolio/screens/MainScreen.dart';
 import 'constants.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.white)
             .copyWith(
-              bodyText1: TextStyle(color: bodyTextColor),
-              bodyText2: TextStyle(color: bodyTextColor),
+              bodyLarge: const TextStyle(color: bodyTextColor),
+              bodyMedium: const TextStyle(color: bodyTextColor),
             ),
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
