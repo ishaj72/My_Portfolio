@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/screens/MainScreen.dart';
+import 'constants.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(home: MyApp()), // use MaterialApp
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,31 +12,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Stack(
-        children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover,
-              ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "My Portfolio",
+      theme: ThemeData.dark().copyWith(
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: bgColor,
+        canvasColor: bgColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+            .apply(bodyColor: Colors.white)
+            .copyWith(
+              bodyText1: TextStyle(color: bodyTextColor),
+              bodyText2: TextStyle(color: bodyTextColor),
             ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              'ISHA JAIN',
-              style: (TextStyle(
-                  fontFamily: "hammersmithOne",
-                  fontSize: 100,
-                  fontWeight: FontWeight.w800)),
-            ),
-          ),
-        ],
-      )),
+      ),
+      home: MainScreen(),
     );
   }
 }
