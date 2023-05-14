@@ -4,7 +4,7 @@ class Project {
   Project({this.title, this.sescription});
 }
 
-List<Project> demo_prject = [
+List<Project> demo_project = [
   Project(
     title: "Farmaid",
     sescription:
