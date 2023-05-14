@@ -1,4 +1,4 @@
-# my_portfolio
+# PORTFOLIO
 
 A new Flutter project. This project contains my portfolio. 
 The project is in the process of completion.
