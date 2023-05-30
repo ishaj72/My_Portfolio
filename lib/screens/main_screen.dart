@@ -24,12 +24,10 @@ class MainScreen extends StatelessWidget {
                 flex: 7,
                 child: Container(
                   color: Colors.blue,
-                )
-              )
-            ],
-          ),
+                ))
+          ],
         ),
-      )
-    );
+      ),
+    ));
   }
 }
