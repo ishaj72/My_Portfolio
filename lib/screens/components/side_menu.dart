@@ -22,16 +22,16 @@ class SideMenu extends StatelessWidget {
             child: Column(
               children: [
                 AddressInfo(
-                  title: "Address",
-                  text: "India",
+                  title: "University",
+                  text: "JUET , Guna",
                 ),
                 AddressInfo(
-                  title: "City",
+                  title: "Home",
                   text: "Jabalpur",
                 ),
                 AddressInfo(
-                  title: "Age",
-                  text: "22",
+                  title: "CGPA",
+                  text: "8.0",
                 ),
                 Skills(),
                 SizedBox(
@@ -65,15 +65,72 @@ class Coding extends StatelessWidget {
             style: Theme.of(context).textTheme.subtitle2,
           ),
         ),
-        TweenAnimationBuilder(
-            tween: Tween<double>(begin: 0, end: 0.8),
-            duration: defaultDuration,
-            builder: (context, double value, child) => LinearProgressIndicator(
-                  value: value,
-                  color: primaryColor,
-                  backgroundColor: darkColor,
-                )),
+        AnimatedLinProgIndicator(
+          label: 'Dart',
+          percentage: 0.7,
+        ),
+        AnimatedLinProgIndicator(
+          label: 'Python',
+          percentage: 0.6,
+        ),
+        AnimatedLinProgIndicator(
+          label: 'c++',
+          percentage: 0.65,
+        ),
+        AnimatedLinProgIndicator(
+          label: 'ML Libraries',
+          percentage: 0.5,
+        ),
+        AnimatedLinProgIndicator(
+          label: 'DSA',
+          percentage: 0.6,
+        ),
       ],
+    );
+  }
+}
+
+class AnimatedLinProgIndicator extends StatelessWidget {
+  const AnimatedLinProgIndicator({
+    super.key,
+    required this.percentage,
+    required this.label,
+  });
+
+  final double percentage;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: defaultPadding),
+      child: TweenAnimationBuilder(
+          tween: Tween<double>(begin: 0, end: percentage),
+          duration: defaultDuration,
+          builder: (context, double value, child) => Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        label,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text((value * 100).toInt().toString() + "%"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                  ),
+                  LinearProgressIndicator(
+                    value: value,
+                    color: primaryColor,
+                    backgroundColor: darkColor,
+                  ),
+                ],
+              )),
     );
   }
 }
