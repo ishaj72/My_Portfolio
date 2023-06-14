@@ -6,7 +6,9 @@ import 'package:my_portfolio/main.dart';
 import 'package:my_portfolio/screens/components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  const MainScreen({super.key, required this.children});
+
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +22,14 @@ class MainScreen extends StatelessWidget {
               flex: 2,
               child: SideMenu(),
             ),
+            SizedBox(width: defaultPadding),
             Expanded(
                 flex: 7,
-                child: Container(
-                  color: Colors.blue,
-                ))
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    ...children,
+                  ]),
+                )),
           ],
         ),
       ),
